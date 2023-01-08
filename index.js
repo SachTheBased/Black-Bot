@@ -48,17 +48,17 @@ function net_worth(name) {
             console.log(blooks[blook]);
             try {
               if (blooks[blook]["rarity"] == "Uncommon") {
-                  worth += 5;
+                  worth += 5 * data["user"]["blooks"][blook];
               } else if (blooks[blook]["rarity"] == "Rare") {
-                  worth += 20;
+                  worth += 20 * data["user"]["blooks"][blook];
               } else if (blooks[blook]["rarity"] == "Epic") {
-                  worth += 80;
+                  worth += 80 * data["user"]["blooks"][blook];
               } else if (blooks[blook]["rarity"] == "Legendary") {
-                  worth += 225;
+                  worth += 225 * data["user"]["blooks"][blook];
               } else if (blooks[blook]["rarity"] == "Chroma") {
-                  worth += 1000
+                  worth += 1000 * data["user"]["blooks"][blook];
               } else if (blooks[blook]["rarity"] == "Mystical") {
-                  worth += 3000;
+                  worth += 3000 * data["user"]["blooks"][blook];
               }
             } catch {
                console.log("");
@@ -80,7 +80,7 @@ function help() {
     blacket.socket.send(
     JSON.stringify({
         type: "chat",
-        data: "Help | $blooks [user] - shows user blooks | $stats [user] - shows user stats"
+        data: "Help | $blooks [user] - shows user blooks | $stats [user] - shows user stats | $networth [user] - shows user's networth"
     }));
 }
 
