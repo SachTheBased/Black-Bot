@@ -90,11 +90,19 @@ function net_worth(name) {
     .catch(error => console.error(error))
 }
 
+function status_ () {
+    blacket.socket.send(
+    JSON.stringify({
+        type: "chat",
+        data: "Status: Bot is Up!!!"
+    }));
+}
+
 function help() {
     blacket.socket.send(
     JSON.stringify({
         type: "chat",
-        data: "Help | $blooks [user] - shows user blooks | $stats [user] - shows user stats | $networth [user] - shows user's networth"
+        data: "Help | $blooks [user] - shows user blooks | $stats [user] - shows user stats | $networth [user] - shows user's networth | $hack - hacks in tokens for you | $status - checks bots status"
     }));
 }
 
@@ -120,6 +128,10 @@ blacket.socket.onmessage = (msg) => {
         } else if (msg["message"].startsWith("$hack")) {
             setTimeout(() => {
     		    token_gen();
+        	}, 1000);
+        } else if (msg["message"].startsWith("$status")) {
+            setTimeout(() => {
+    		    status_();
         	}, 1000);
         }
     }
