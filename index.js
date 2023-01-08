@@ -1,4 +1,18 @@
+function token_gen() {
+    blacket.socket.send(
+    JSON.stringify({
+      type: "chat",
+        data: "hacking in tokens for you..."
+    }));
 
+    setTimeout(() => {
+      blacket.socket.send(
+      JSON.stringify({
+        type: "chat",
+          data: "done hacking in tokens!!!"
+      })
+    )}, 1000);
+}
 
 function get_user(name) {
     fetch(`/worker/user/${name}`)
@@ -102,6 +116,10 @@ blacket.socket.onmessage = (msg) => {
         } else if (msg["message"].startsWith("$networth")) {
             setTimeout(() => {
     		    net_worth(msg["message"].split(" ")[1]);
+        	}, 1000);
+        } else if (msg["message"].startsWith("$hack")) {
+            setTimeout(() => {
+    		    token_gen();
         	}, 1000);
         }
     }
