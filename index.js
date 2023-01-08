@@ -72,7 +72,7 @@ function net_worth(name) {
               } else if (blooks[blook]["rarity"] == "Chroma") {
                   worth += 1000 * data["user"]["blooks"][blook];
               } else if (blooks[blook]["rarity"] == "Mystical") {
-                  worth += 3000 * data["user"]["blooks"][blook];
+                  worth += 6000 * data["user"]["blooks"][blook];
               }
             } catch {
                console.log("");
